@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { useAtom } from "jotai";
 import { selectionsAtom } from "@/lib/atom";
-import EaselWatercolor from "./test";
+import EaselWatercolor from "./backImage";
 
 interface Response {
     id: number;
