@@ -127,11 +127,11 @@ const QuestionPage: React.FC = () => {
             </div>
 
             <Image
-                src={"/kangaeruhito.png"}
+                src={"/question_ozisan.gif"}
                 alt={""}
-                height={230}
-                width={230}
-                className="absolute -bottom-1 -right-14"
+                height={400}
+                width={400}
+                className="fixed -bottom-44 -left-20"
             />
         </div>
     );
