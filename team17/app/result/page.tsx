@@ -122,22 +122,32 @@ export default function Home() {
 
     return (
         <div className={`space-y-4 p-6 z-0`}>
-            {isLoading && (
-                <Image
-                    src={"/result_ozisan.gif"}
-                    alt={""}
-                    height={400}
-                    width={400}
-                    className="fixed -bottom-44 -left-20"
-                />
-            )}
+            <AnimatePresence>
+                {isLoading && (
+                    <motion.div
+                        key="loading"
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: 1 }}
+                        exit={{
+                            opacity: 0,
+                            transition: { duration: 1 },
+                        }}
+                    >
+                        <Image
+                            src="/result_ozisan.gif"
+                            alt=""
+                            height={400}
+                            width={400}
+                            className="fixed -bottom-44 -left-20"
+                        />
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <Button
                 size="lg"
                 className="bg-green-500 font-semibold text-lg rounded-full z-50 bottom-5 right-5 fixed"
                 onClick={(e) => {
-                    // e.preventDefault();
-                    // setSelections([]);
                     window.location.href = "/question";
                 }}
             >
@@ -231,33 +241,6 @@ export default function Home() {
                                         />
                                     </div>
                                 )}
-                                {/* <h3 className="text-2xl font-semibold">
-                                    {selectedLocation.name}
-                                </h3>
-                                <div>
-                                    <p className="text-gray-600">
-                                        {selectedLocation.postalCode}
-                                    </p>
-                                    <p className="text-gray-800">
-                                        {selectedLocation.longAddress}
-                                    </p>
-                                    <a
-                                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                                            selectedLocation.name
-                                        )}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center text-blue-500 hover:underline"
-                                    >
-                                        <MapPin className="w-5 h-5 mr-1" />
-                                        地図で見る
-                                    </a>
-                                    {selectedLocation.description && (
-                                        <p className="text-gray-700 pt-2">
-                                            {selectedLocation.description}
-                                        </p>
-                                    )}
-                                </div> */}
                                 <motion.h3
                                     className="text-2xl font-semibold pt-3 pb-3"
                                     initial={{ opacity: 0, scale: 0 }}
