@@ -9,7 +9,7 @@ import { useAtom } from "jotai";
 import { selectionsAtom } from "@/lib/atom";
 import EaselWatercolor from "./backImage";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import LoadingImage from "./loadingImage";
 
 interface Response {
     id: number;
@@ -122,7 +122,7 @@ export default function Home() {
 
     return (
         <div className={`space-y-4 p-6 z-0`}>
-            {isLoading && <p className="-z-20">Loading...</p>}
+            {isLoading && <LoadingImage />}
 
             <Button
                 size="lg"
