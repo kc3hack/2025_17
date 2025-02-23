@@ -136,8 +136,9 @@ export default function Home() {
                         <Image
                             src="/result_ozisan.gif"
                             alt=""
+                            priority
                             height={400}
-                            width={400}
+                            width={1500}
                             className="fixed -bottom-44 -left-20"
                         />
                     </motion.div>
