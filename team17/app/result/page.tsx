@@ -8,6 +8,8 @@ import Image from "next/image";
 import { useAtom } from "jotai";
 import { selectionsAtom } from "@/lib/atom";
 import EaselWatercolor from "./backImage";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface Response {
     id: number;
@@ -21,7 +23,7 @@ interface Response {
 
 export default function Home() {
     const [selectedId, setSelectedId] = useState<number | null>(null);
-    const [selections] = useAtom(selectionsAtom);
+    const [selections, setSelections] = useAtom(selectionsAtom);
     const [isLoading, setIsLoading] = useState(false);
     const [isFirstLoad, setIsFirstLoad] = useState(true);
     const [response, setResponse] = useState<Response[]>([]);
@@ -120,13 +122,25 @@ export default function Home() {
 
     return (
         <div className={`space-y-4 p-6 z-0`}>
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <p className="-z-20">Loading...</p>}
+
+            <Button
+                size="lg"
+                className="bg-green-500 font-semibold text-lg rounded-full z-50 top-5 right-5 fixed"
+                onClick={(e) => {
+                    // e.preventDefault();
+                    // setSelections([]);
+                    window.location.href = "/question";
+                }}
+            >
+                再診断
+            </Button>
 
             <EaselWatercolor />
             <div
                 className="space-y-3"
                 style={{
-                    top: "18.5%",
+                    top: "21%",
                     left: "12%",
                     right: "11%",
                     position: "absolute",
