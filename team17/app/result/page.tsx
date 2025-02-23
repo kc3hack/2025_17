@@ -23,6 +23,7 @@ export default function Home() {
     const [selectedId, setSelectedId] = useState<number | null>(null);
     const [selections] = useAtom(selectionsAtom);
     const [isLoading, setIsLoading] = useState(false);
+    const [isFirstLoad, setIsFirstLoad] = useState(true);
     const [response, setResponse] = useState<Response[]>([]);
 
     // descriptionフィールドのサンプル文章を詳細に変更
@@ -135,14 +136,17 @@ export default function Home() {
                     <motion.div
                         key={res.id}
                         layoutId={res.id.toString()}
-                        onClick={() => setSelectedId(res.id)}
+                        onClick={() => {
+                            setSelectedId(res.id);
+                            setIsFirstLoad(false);
+                        }}
                         style={{
                             backgroundColor: "rgb(244, 241, 231, 0.5)",
                         }}
                         className="h-22 rounded-lg cursor-pointer border-2 shadow-md"
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: [0, 1.05, 1] }}
-                        transition={{ delay: 0.2 * index }}
+                        transition={{ delay: isFirstLoad ? 0.2 * index : 0 }}
                     >
                         <div className="flex items-center space-x-3 p-3">
                             {res.imageUrl ? (
