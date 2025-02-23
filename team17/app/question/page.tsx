@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useAtom } from "jotai";
 import { selectionsAtom, selectedColorsAtom } from "@/lib/atom";
+import Image from "next/image";
 
 // Tailwind CSSの標準カラーパレットを使用
 const questions = [
@@ -48,6 +49,14 @@ const questions = [
             { text: "冬", color: "rgb(186 230 253)" }, // sky-200
         ],
     },
+];
+
+const colorPos = [
+    { x: 34, y: 440 },
+    { x: 43, y: 385 },
+    { x: 91, y: 349 },
+    { x: 156, y: 340 },
+    { x: 205, y: 376 },
 ];
 
 const QuestionPage: React.FC = () => {
@@ -95,19 +104,35 @@ const QuestionPage: React.FC = () => {
                 </div>
             </motion.div>
             <div className="mt-4">
-                <p className="text-sm text-gray-500 mb-2">
-                    選択したカラーパレット:
-                </p>
-                <div className="flex gap-2">
-                    {selectedColors.map((color, index) => (
-                        <div
-                            key={index}
-                            className="w-8 h-8 rounded-full"
-                            style={{ backgroundColor: color }}
-                        />
-                    ))}
-                </div>
+                <Image
+                    src={"/palette_noColor.png"}
+                    alt={""}
+                    height={250}
+                    width={250}
+                    className="absolute bottom-36 right-32"
+                />
+                {/* <div className="relative h-32 w-full"> */}
+                {selectedColors.map((color, index) => (
+                    <div
+                        key={index}
+                        className="absolute w-8 h-8 rounded-full"
+                        style={{
+                            backgroundColor: color,
+                            left: `${colorPos[index].x}px`,
+                            top: `${colorPos[index].y}px`,
+                        }}
+                    />
+                ))}
+                {/* </div> */}
             </div>
+
+            <Image
+                src={"/kangaeruhito.png"}
+                alt={""}
+                height={230}
+                width={230}
+                className="absolute -bottom-1 -right-14"
+            />
         </div>
     );
 };
