@@ -122,11 +122,19 @@ export default function Home() {
 
     return (
         <div className={`space-y-4 p-6 z-0`}>
-            {isLoading && <LoadingImage />}
+            {isLoading && (
+                <Image
+                    src={"/result_ozisan.gif"}
+                    alt={""}
+                    height={400}
+                    width={400}
+                    className="fixed -bottom-44 -left-20"
+                />
+            )}
 
             <Button
                 size="lg"
-                className="bg-green-500 font-semibold text-lg rounded-full z-50 top-5 right-5 fixed"
+                className="bg-green-500 font-semibold text-lg rounded-full z-50 bottom-5 right-5 fixed"
                 onClick={(e) => {
                     // e.preventDefault();
                     // setSelections([]);

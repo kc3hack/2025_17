@@ -37,7 +37,7 @@ const EaselWatercolor = () => {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 0.45 }}
-                        transition={{ delay: index, duration: 1 }}
+                        transition={{ delay: index * 1.5, duration: 2 }}
                         key={index}
                         className="absolute rounded-full"
                         style={{
