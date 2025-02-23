@@ -151,7 +151,7 @@ const QuestionPage: React.FC = () => {
                 alt={""}
                 height={400}
                 width={400}
-                className="fixed -bottom-44 -left-20"
+                className="fixed -bottom-44 -left-20 -z-10"
             />
         </div>
     );
