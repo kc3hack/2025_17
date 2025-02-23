@@ -7,6 +7,7 @@ import Image from "next/image";
 
 import { useAtom } from "jotai";
 import { selectionsAtom } from "@/lib/atom";
+import EaselWatercolor from "./backImage";
 
 interface Response {
     id: number;
@@ -112,24 +113,38 @@ export default function Home() {
         };
 
         fetchData();
-    }, []);
+    }, [selections]);
 
     const selectedLocation = response.find((res) => res.id === selectedId);
 
     return (
-        <div className="space-y-4 p-6">
+        <div className={`space-y-4 p-6 z-0`}>
             {isLoading && <p>Loading...</p>}
 
-            <div className="space-y-4">
-                {response.map((res) => (
+            <EaselWatercolor />
+            <div
+                className="space-y-3"
+                style={{
+                    top: "18.5%",
+                    left: "12%",
+                    right: "11%",
+                    position: "absolute",
+                }}
+            >
+                {response.map((res, index) => (
                     <motion.div
                         key={res.id}
                         layoutId={res.id.toString()}
                         onClick={() => setSelectedId(res.id)}
-                        className="h-22 rounded-lg cursor-pointer border-2"
-                        whileHover={{ scale: 1.05 }}
+                        style={{
+                            backgroundColor: "rgb(244, 241, 231, 0.5)",
+                        }}
+                        className="h-22 rounded-lg cursor-pointer border-2 shadow-md"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: [0, 1.05, 1] }}
+                        transition={{ delay: 0.2 * index }}
                     >
-                        <div className="flex items-center space-x-2 p-4">
+                        <div className="flex items-center space-x-3 p-3">
                             {res.imageUrl ? (
                                 <div className="relative w-12 h-12">
                                     <Image
@@ -147,7 +162,7 @@ export default function Home() {
                                 <h3 className="text-lg font-semibold">
                                     {res.name}
                                 </h3>
-                                <p>{res.postalCode}</p>
+                                <p>{res.shortAddress}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -165,7 +180,7 @@ export default function Home() {
                         <div
                             className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50"
                             onClick={() => setSelectedId(null)}
-                        ></div>
+                        />
 
                         <motion.div
                             layoutId={selectedId.toString()}

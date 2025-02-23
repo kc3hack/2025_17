@@ -23,7 +23,7 @@ export default function RootLayout({
     return (
         <html lang="ja">
             <body className={cn(inter.className, "min-h-dvh")}>
-                <header className="h-16 border-b px-6 flex items-center">
+                {/* <header className="h-16 border-b px-6 flex items-center">
                     <Button
                         asChild
                         variant={"ghost"}
@@ -31,7 +31,7 @@ export default function RootLayout({
                     >
                         <Link href="/wikipedia">HOME</Link>
                     </Button>
-                </header>
+                </header> */}
 
                 {children}
 
