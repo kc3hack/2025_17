@@ -12,41 +12,41 @@ const questions = [
     {
         question: "どんな雰囲気が良いか？",
         options: [
-            { text: "自然", color: "rgb(34 197 94)" }, // green-500
-            { text: "都市", color: "rgb(59 130 246)" }, // blue-500
-            { text: "歴史的", color: "rgb(120 113 108)" }, // stone-500
+            { text: "自然", color: "#228B22" }, // green-500
+            { text: "都市", color: "#34495E" }, // blue-500
+            { text: "歴史的", color: "#A67B5B" }, // stone-500
         ],
     },
     {
         question: "楽しみたい体験は？",
         options: [
-            { text: "景観", color: "rgb(168 85 247)" }, // purple-500
-            { text: "アクティブ", color: "rgb(249 115 22)" }, // orange-500
-            { text: "文化", color: "rgb(234 179 8)" }, // yellow-500
+            { text: "景観", color: "#87CEEB" }, // purple-500
+            { text: "アクティブ", color: "#E74C3C" }, // orange-500
+            { text: "文化", color: "#8E44AD" }, // yellow-500
         ],
     },
     {
         question: "静か？賑やか？",
         options: [
-            { text: "静か", color: "rgb(148 163 184)" }, // slate-400
-            { text: "賑やか", color: "rgb(239 68 68)" }, // red-500
+            { text: "静か", color: "#95A5A6" }, // slate-400
+            { text: "賑やか", color: "#E91E63" }, // red-500
         ],
     },
     {
         question: "どのくらいかかる？",
         options: [
-            { text: "数時間", color: "rgb(236 72 153)" }, // pink-500
-            { text: "日帰り", color: "rgb(249 115 22)" }, // orange-500
-            { text: "お泊り", color: "rgb(37 99 235)" }, // blue-600
+            { text: "数時間", color: "#E3D4FF" }, // pink-500
+            { text: "日帰り", color: "#D4A017" }, // orange-500
+            { text: "お泊り", color: "#1A237E" }, // blue-600
         ],
     },
     {
         question: "どの季節に行く？",
         options: [
-            { text: "春", color: "rgb(244 114 182)" }, // pink-400
-            { text: "夏", color: "rgb(34 211 238)" }, // cyan-400
-            { text: "秋", color: "rgb(180 83 9)" }, // amber-700
-            { text: "冬", color: "rgb(186 230 253)" }, // sky-200
+            { text: "春", color: "#f1b4c8" }, // pink-400
+            { text: "夏", color: "#00b16b" }, // cyan-400
+            { text: "秋", color: "#f58220" }, // amber-700
+            { text: "冬", color: "#bcd6e4" }, // sky-200
         ],
     },
 ];
