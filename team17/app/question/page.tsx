@@ -51,12 +51,27 @@ const questions = [
     },
 ];
 
+const getLighterColor = (color: string): string => {
+    const hex = color.replace("#", "");
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    const newR = Math.min(255, Math.floor(r + (255 - r) * 0.55));
+    const newG = Math.min(255, Math.floor(g + (255 - g) * 0.55));
+    const newB = Math.min(255, Math.floor(b + (255 - b) * 0.55));
+
+    const toHex = (n: number) => n.toString(16).padStart(2, "0");
+
+    return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+};
+
 const colorPos = [
-    { x: 34, y: 440 },
-    { x: 43, y: 385 },
-    { x: 91, y: 349 },
-    { x: 156, y: 340 },
-    { x: 205, y: 376 },
+    { x: 197, y: 60 },
+    { x: 188, y: 109 },
+    { x: 143, y: 143 },
+    { x: 84, y: 150 },
+    { x: 39, y: 118 },
 ];
 
 const QuestionPage: React.FC = () => {
@@ -107,21 +122,26 @@ const QuestionPage: React.FC = () => {
                 <Image
                     src={"/palette_noColor.png"}
                     alt={""}
-                    height={250}
-                    width={250}
-                    className="absolute bottom-36 right-32"
+                    height={230}
+                    width={230}
+                    className="absolute bottom-[15px] right-[15px]"
                 />
                 {/* <div className="relative h-32 w-full"> */}
                 {selectedColors.map((color, index) => (
                     <div
                         key={index}
-                        className="absolute w-8 h-8 rounded-full"
+                        className={`absolute w-7 h-7 rounded-full shadow-md`}
                         style={{
                             backgroundColor: color,
-                            left: `${colorPos[index].x}px`,
-                            top: `${colorPos[index].y}px`,
+                            bottom: `${colorPos[index].y}px`,
+                            right: `${colorPos[index].x}px`,
                         }}
-                    />
+                    >
+                        <div
+                            className="relative w-1 h-3 rotate-45 top-[2px] left-[6px] rounded-full "
+                            style={{ backgroundColor: getLighterColor(color) }}
+                        />
+                    </div>
                 ))}
                 {/* </div> */}
             </div>
