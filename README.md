@@ -27,7 +27,7 @@ Gemini API を用いて、ユーザが決めたテーマから関西圏内の観
 
 ## 操作説明・デモ動画
 
-https://github.com/user-attachments/assets/d2bf2fc8-7111-42e6-aebc-66f9295326e4
+https://github.com/user-attachments/assets/5b2499ae-131d-44eb-959c-503555c1acd1
 
 <!-- 開発したプロダクトの操作説明について入力してください。また、操作説明デモ動画があれば、埋め込みやリンクを記載してください -->
 
